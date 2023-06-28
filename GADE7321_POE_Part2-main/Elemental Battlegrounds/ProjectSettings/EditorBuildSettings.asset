@@ -6,29 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/HowToPlay.unity
-    guid: c0c620a8229c5394484f6fad9f9b7c6d
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 4bd8a94884dad044d8a80729096bf9cb
+    path: Assets/Scenes/ChooseAI.unity
+    guid: a1f90fdfdcf25934f8c63426933fc7a8
   - enabled: 1
     path: Assets/Scenes/ChooseAiDif.unity
     guid: c987dd704e014734db84a05b6ad00cc7
   - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 4bd8a94884dad044d8a80729096bf9cb
+  - enabled: 1
     path: Assets/Scenes/GameSceneAIEasy.unity
     guid: 779cb284e4177fe42ba81fd5d657991e
+  - enabled: 1
+    path: Assets/Scenes/GameSceneAIHard.unity
+    guid: 95444f8e8a5c12642ad415b2ced9ac8b
   - enabled: 1
     path: Assets/Scenes/GameSceneAIMeduim.unity
     guid: 41adbfc4367f6c1418a683455c98386f
   - enabled: 1
-    path: Assets/Scenes/GameSceneAIHard.unity
-    guid: 95444f8e8a5c12642ad415b2ced9ac8b
+    path: Assets/Scenes/HowToPlay.unity
+    guid: c0c620a8229c5394484f6fad9f9b7c6d
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/SingleOrMulti.unity
     guid: cb1ece0258d75944099f78e9729af5a5

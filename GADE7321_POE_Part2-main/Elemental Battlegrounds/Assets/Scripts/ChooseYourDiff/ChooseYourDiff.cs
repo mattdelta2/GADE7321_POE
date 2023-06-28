@@ -29,9 +29,9 @@ public class ChooseYourDiff : MonoBehaviour
 
     }
 
-    public void MainMenu()
+    public void Back()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("ChooseAI");
     }
 
 }

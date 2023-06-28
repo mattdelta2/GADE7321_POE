@@ -9,7 +9,7 @@ public class SingleOrMulti : MonoBehaviour
 
     public void SinglePlayer()
     {
-        SceneManager.LoadScene("ChooseAiDif");
+        SceneManager.LoadScene("ChooseAI");
     }
 
 
@@ -18,9 +18,9 @@ public class SingleOrMulti : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void MainMenu()
+    public void Back()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("SingleOrMulti");
     }
 }
 

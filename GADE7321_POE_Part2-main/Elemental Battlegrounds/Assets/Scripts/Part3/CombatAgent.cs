@@ -13,6 +13,8 @@ public class CombatAgent : Agent
     Unit EnemyUnit;
 
     Part3BattleState State;
+    EnvironmentParameters GameState;
+    BattleStatePart3 Game;
     public void Reward(float reward)
     {
         float rewards = 0f;
@@ -20,7 +22,16 @@ public class CombatAgent : Agent
 
     public void Start()
     {
+        PlayerUnit = GetComponent<Unit>();
+        EnemyUnit = GetComponent<Unit>();
         
+    }
+
+    public override void Initialize()
+    {
+
+        Game = BattleStatePart3.Start;
+        GameState = Academy.Instance.EnvironmentParameters;
     }
 
 
@@ -55,11 +66,26 @@ public class CombatAgent : Agent
         if(actionIndex == 0)
         {
             State.AITurn();
+            SetReward(1f);
+            EndEpisode();
         }
         else if(actionIndex == 1)
         {
             State.AITurn();
+            SetReward(.1f);
         }
     }
+
+    public void StartGame()
+    {
+        Game = BattleStatePart3.Start;
+    }
+
+    public void SetResetParam()
+    {
+        StartGame();
+    }
+
+
 
 }

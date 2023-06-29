@@ -2301,7 +2301,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 2
+  MaxStep: 100
   useVecObs: 0
 --- !u!114 &1180337216
 MonoBehaviour:
@@ -2320,13 +2320,13 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
-      BranchSizes: 0200000002000000
+      BranchSizes: 02000000
     VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 2
+  m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: AIBattleSystem
   TeamId: 1
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Record: 1
-  NumStepsToRecord: 2
+  NumStepsToRecord: 100
   DemonstrationName: Moves
   DemonstrationDirectory: Assets/Demonstration
 --- !u!1 &1235978421

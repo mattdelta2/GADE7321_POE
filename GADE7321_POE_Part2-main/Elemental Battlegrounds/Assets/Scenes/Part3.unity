@@ -1287,6 +1287,11 @@ RectTransform:
   m_AnchoredPosition: {x: -40.37, y: 21.07}
   m_SizeDelta: {x: 222.24, y: 54.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &712946579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7203830725189163270, guid: 029aa76d16a70424798acf6e016d5b00, type: 3}
+  m_PrefabInstance: {fileID: 258493176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &715616304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &747483925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,7 +1851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1033434031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2260,6 +2265,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175693419}
   m_CullTransparentMesh: 0
+--- !u!1 &1180337214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180337217}
+  - component: {fileID: 1180337216}
+  - component: {fileID: 1180337215}
+  m_Layer: 0
+  m_Name: AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1180337215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180337214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4c08004407614449772e86daeb7c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 4
+--- !u!114 &1180337216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180337214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 01000000
+    VectorActionSize: 01000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: AIBattleSystem
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 0
+--- !u!4 &1180337217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180337214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 964.1015, y: 503.0798, z: 14.84375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235978421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2469,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287223764}
+  - component: {fileID: 1287223766}
+  - component: {fileID: 1287223765}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -2406,6 +2493,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287223765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287223762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8e3612a09c9444b86d89156f2ff08d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  playerPrefab:
+  - {fileID: 7144797653571833589, guid: 2457cc8d595113a47b54276a0841fbb9, type: 3}
+  - {fileID: 8361823627276329839, guid: c011b02209a98cb4cb5c1040e1c88cdc, type: 3}
+  - {fileID: 293238678101099929, guid: ab6754fe20134ba4e815410c9a4e0058, type: 3}
+  - {fileID: 8231028903081639392, guid: 53ece7f4857b46f4d950989349b9452e, type: 3}
+  - {fileID: 2994255514055429683, guid: e6cba1c0749014749b6e45a61977b520, type: 3}
+  - {fileID: 2736374537050472613, guid: e8f25e3209ec41b4486fcf92490436f3, type: 3}
+  - {fileID: 634942796710495362, guid: fe485628ecdd12b47b4b87c6c3388e6b, type: 3}
+  enemyPrefab:
+  - {fileID: 7144797653571833589, guid: 2f5a001ed7eae2f4e8525a51a28fc156, type: 3}
+  - {fileID: 634942796710495362, guid: fe485628ecdd12b47b4b87c6c3388e6b, type: 3}
+  - {fileID: 8361823627276329839, guid: c011b02209a98cb4cb5c1040e1c88cdc, type: 3}
+  - {fileID: 293238678101099929, guid: ab6754fe20134ba4e815410c9a4e0058, type: 3}
+  - {fileID: 8231028903081639392, guid: 53ece7f4857b46f4d950989349b9452e, type: 3}
+  - {fileID: 2994255514055429683, guid: e6cba1c0749014749b6e45a61977b520, type: 3}
+  - {fileID: 2736374537050472613, guid: e8f25e3209ec41b4486fcf92490436f3, type: 3}
+  playerBattleStation: {fileID: 712946579}
+  enemyBattleStation: {fileID: 1733168247}
+  dialogueText: {fileID: 2076993731}
+  playerHUD: {fileID: 1354645081}
+  enemyHUD: {fileID: 443383318}
+  Attack: {fileID: 2007199165}
+  Heal: {fileID: 1708968041}
+  state: 0
+  cumulativeReward: 0
+--- !u!114 &1287223766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287223762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 1
+      BranchSizes: 02000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 3
+  m_BehaviorType: 0
+  m_BehaviorName: AIBattleSystem1
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_DeterministicInference: 0
+  m_ObservableAttributeHandling: 2
 --- !u!1 &1335164088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,8 +2974,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleState, Assembly-CSharp
+      - m_Target: {fileID: 1287223765}
+        m_TargetAssemblyTypeName: Part3BattleState, Assembly-CSharp
         m_MethodName: OnHealButton
         m_Mode: 1
         m_Arguments:
@@ -2874,7 +3033,7 @@ RectTransform:
   m_GameObject: {fileID: 1708968040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1.17635, y: 1.17635, z: 1.17635}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1175693420}
@@ -2883,9 +3042,14 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117, y: -30.300014}
+  m_AnchoredPosition: {x: -9.0944, y: -33}
   m_SizeDelta: {x: 146.05, y: 52.63}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1733168247 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1734302297562042435, guid: 783c974dabaa92241b5f1b281cf5ebf6, type: 3}
+  m_PrefabInstance: {fileID: 413834899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1744700978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,8 +3611,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BattleState, Assembly-CSharp
+      - m_Target: {fileID: 1287223765}
+        m_TargetAssemblyTypeName: Part3BattleState, Assembly-CSharp
         m_MethodName: OnAttackButton
         m_Mode: 1
         m_Arguments:
@@ -3506,7 +3670,7 @@ RectTransform:
   m_GameObject: {fileID: 2007199164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1.17635, y: 1.17635, z: 1.17635}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 223928725}
@@ -3515,7 +3679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122, y: -0.7000122}
+  m_AnchoredPosition: {x: -17.497, y: 16.744095}
   m_SizeDelta: {x: 146.05, y: 52.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2076993730
@@ -3595,6 +3759,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -192, y: 16.5}
+  m_AnchoredPosition: {x: -192, y: 25.6}
   m_SizeDelta: {x: -388.2, y: -32.9}
   m_Pivot: {x: 0.5, y: 0.5}

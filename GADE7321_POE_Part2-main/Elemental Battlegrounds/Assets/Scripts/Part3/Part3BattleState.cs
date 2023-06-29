@@ -40,9 +40,20 @@ public class Part3BattleState : Agent
 
     public BattleStatePart3 state;
 
+    public float cumulativeReward;
+
+    private CombatAgent AI;
+
+    public void Awake()
+    {
+        GameObject aiAgent = GameObject.Find("AI");
+
+        AI = aiAgent.GetComponent<CombatAgent>();
+    }
 
 
-     void Start()
+
+    void Start()
     {
         state = BattleStatePart3.Start;
         StartCoroutine(SetUpBattle());
@@ -114,19 +125,19 @@ public class Part3BattleState : Agent
         
 
         int aiDecision = MakeAIDecision();
-        float reward = 0f;
+        
 
         if (aiDecision == 1)
         {
             StartCoroutine(AIAttack());
-            reward = CalculateAttackReward();
+            GivePostitveReward();
             
 
         }
         else if (aiDecision == 2)
         {
             StartCoroutine(AIHeal());
-            reward = CalculateHealReward();
+            GivePostitveReward();
         }
 
 
@@ -275,10 +286,12 @@ public class Part3BattleState : Agent
             if (EnemyUnit.currentHP <= 0)
             {
                 dialogueText.text = "You are Victorious";
+                GiveNegativeReward();
             }
             else if (PlayerUnit.currentHP <= 0)
             {
                 dialogueText.text = "Your Opponent is Victorious";
+                GivePostitveReward();
             }
 
             yield return new WaitForSeconds(5);
@@ -296,36 +309,23 @@ public class Part3BattleState : Agent
         return decision;
     }
 
-    float CalculateAttackReward()
+   
+    public void GivePostitveReward()
     {
-        // Implement the reward calculation logic for the attack action
-        // Adjust the reward based on the game outcome (e.g., if the player is defeated or not)
-
-        bool isDead = PlayerUnit.TakeDamage(EnemyUnit.damage, EnemyUnit.element);
-
-        float reward = 0f;
-
-        if (isDead)
-        {
-            reward = 10f; // Maximum reward when the player is defeated
-        }
-        else
-        {
-            // Calculate a partial reward based on the amount of damage dealt, game state, or any other relevant factors
-            reward = EnemyUnit.damage;
-        }
-
-        return reward;
+        float postiveReward = 1f;
+        AI.Reward(postiveReward);
     }
 
-    float CalculateHealReward()
+    public void GiveNegativeReward()
     {
-        // Implement the reward calculation logic for the heal action
-        // Adjust the reward based on the game state, effectiveness of the heal, or any other relevant factors
+        float negativeReward = -1f;
+        AI.Reward(negativeReward);
+    }
 
-        float reward = 2f;
 
-        return reward;
+    void AssignRewardToModel(float reward)
+    {
+        
     }
 
 

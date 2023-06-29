@@ -9,12 +9,15 @@ using System.Threading;
 
 public class CombatAgent : Agent
 {
-    Unit PlayerUnit;
-    Unit EnemyUnit;
+   
 
     Part3BattleState State;
+
+    Unit PlayerUnit;
+    Unit EnemyUnit;
     EnvironmentParameters GameState;
     BattleStatePart3 Game;
+    public bool useVecObs;
     public void Reward(float reward)
     {
         float rewards = 0f;
@@ -24,57 +27,64 @@ public class CombatAgent : Agent
     {
         PlayerUnit = GetComponent<Unit>();
         EnemyUnit = GetComponent<Unit>();
+
+        State.GetComponent<Part3BattleState>();
         
     }
 
     public override void Initialize()
     {
+        PlayerUnit = FindObjectOfType<Unit>();
+        EnemyUnit = FindObjectOfType<Unit>();
+        State = GetComponent<Part3BattleState>();
 
         Game = BattleStatePart3.Start;
         GameState = Academy.Instance.EnvironmentParameters;
+        SetResetParam();
     }
 
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        PlayerUnit = GetComponent<Unit>();
+        EnemyUnit = GetComponent<Unit>();
         if (PlayerUnit != null)
         {
             sensor.AddObservation(PlayerUnit.currentHP);
         }
-        else
-        {
-            Debug.Log("PlayerUnit comonent not found");
-        }
+
 
         if(EnemyUnit != null)
         {
             sensor.AddObservation(EnemyUnit.currentHP);
         }
-        else
-        {
-            Debug.Log("Enemy unit component not found");
-        }
+
 
         
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        State = GetComponent<Part3BattleState>();
         int actionIndex = actions.DiscreteActions[0];
 
-
-        if(actionIndex == 0)
+        if (actionIndex == 0)
         {
             State.AITurn();
             SetReward(1f);
             EndEpisode();
         }
-        else if(actionIndex == 1)
+        else if (actionIndex == 1)
         {
             State.AITurn();
-            SetReward(.1f);
+        }
+
+        if (EnemyUnit != null && EnemyUnit.currentHP == 0)
+        {
+            SetReward(-1f);
         }
     }
+
 
     public void StartGame()
     {

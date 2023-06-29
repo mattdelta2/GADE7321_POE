@@ -166,6 +166,8 @@ public class Part3BattleState : Agent
 
     IEnumerator AIHeal()
     {
+        yield return new WaitForSeconds(5f);
+
         EnemyUnit.Heal(2);
         enemyHUD.SetHP(EnemyUnit.currentHP);
         dialogueText.text = "Your Opponent Has Healed for: 2HP";
@@ -191,6 +193,16 @@ public class Part3BattleState : Agent
 
             return;
         StartCoroutine(PlayerAttack());
+
+    }
+
+    public void OnHealButton()
+    {
+        if (state != BattleStatePart3.PlayerTurn)
+
+            return;
+        StartCoroutine(PlayerHeal());
+
 
     }
 

@@ -21,5 +21,9 @@ public class AIChoice : MonoBehaviour
     {
         SceneManager.LoadScene("Part3");
     }
+    public void Back()
+    {
+        SceneManager.LoadScene("SingleOrMulti");
+    }
 
 }
